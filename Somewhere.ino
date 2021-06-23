@@ -2,6 +2,7 @@
 
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R2, SCL, SDA, U8X8_PIN_NONE);  // High speed I2C
 
+// List of pixel drawings
 #define Ranch_1_Cloud_Day_width 128
 #define Ranch_1_Cloud_Day_height 20
 static const unsigned char Ranch_1_Cloud_Day_bits[] PROGMEM = {
@@ -430,6 +431,7 @@ static void setup(void) {
   pinMode(button, INPUT);
   Serial.begin(9600);
 
+  //random initial value
   num1 = random(1, 3);
   num2 = random(1, 3);
   num3 = random(1, 3);
@@ -438,6 +440,7 @@ static void setup(void) {
 
 void draw(int value) {
       if(num1 == 1){
+        //if the light index of the surroundings fall below 100, turn to "night mode"
         if(value < 100){
           u8g2.drawXBMP(0,0, Ranch_1_Cloud_width, Ranch_1_Cloud_height, Ranch_1_Cloud_bits);
         }
@@ -510,6 +513,7 @@ void draw(int value) {
   
 void loop(void) {
 
+  //tracks the magnitude of light(light index)
   int value = analogRead(light);
 
   u8g2.firstPage();
@@ -519,7 +523,7 @@ void loop(void) {
     
   } while(u8g2.nextPage());
   
-  
+  //changes the value per input from button
   if(digitalRead(button) == HIGH){
      num1 = random(1, 3);
      num2 = random(1, 3);
