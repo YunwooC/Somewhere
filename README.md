@@ -1,2 +1,4 @@
 # Somewhere
-This was the code of my submission to Virtual Codeday(https://virtual.codeday.org/) Summer 2021. Written for Arduino UNO. This was my first time with an Arduino, so I wanted to explore some of its functions as well as pixel drawing. This is a simple project that displays a landscape randomly created by assorting different blocks of pixel drawings. At that time, I didn't have time to submit with the features that I originally planned to add in the beginning, but I'm free to work on it now and post it here.
+
+This is a simple project that displays a landscape randomly created by assorting different blocks of pixel drawings. Switches to day/night mode depending on the light index.
+Submitted to Virtual Codeday(https://virtual.codeday.org/) Summer 2021.
